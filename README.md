@@ -30,7 +30,7 @@ Generate an API key by visiting the Lumino Dashboard at this [settings page](htt
 ## Setting environment variable
 
 ```
-export LUMINO_API_KEY=xxxxx
+export LUMSDK_API_KEY=xxxxx
 ```
 
 ## Usage – Python Client
@@ -44,7 +44,7 @@ from lumino.api_sdk.sdk import LuminoSDK
 
 
 async def main():
-    async with LuminoSDK(os.environ.get("LUMINO_API_KEY")) as client:
+    async with LuminoSDK(os.environ.get("LUMSDK_API_KEY")) as client:
         user = await client.user.get_current_user()
         print(user)
 
@@ -63,7 +63,7 @@ from lumino.api_sdk.sdk import LuminoSDK
 
 
 async def main():
-    async with LuminoSDK(os.environ.get("LUMINO_API_KEY")) as client:
+    async with LuminoSDK(os.environ.get("LUMSDK_API_KEY")) as client:
         files = await client.dataset.list_datasets()
         await client.dataset.upload_dataset("somefile.jsonl")
         await client.dataset.get_dataset("somefile.jsonl")
@@ -85,7 +85,7 @@ from lumino.api_sdk.sdk import LuminoSDK
 
 
 async def main():
-    async with LuminoSDK(os.environ.get("LUMINO_API_KEY")) as client:
+    async with LuminoSDK(os.environ.get("LUMSDK_API_KEY")) as client:
         models = await client.model.list_base_models()
         print(models)
 
@@ -105,7 +105,7 @@ from lumino.api_sdk.models import FineTuningJobCreate, FineTuningJobParameters
 
 
 async def main():
-    async with LuminoSDK(os.environ.get("LUMINO_API_KEY")) as client:
+    async with LuminoSDK(os.environ.get("LUMSDK_API_KEY")) as client:
         files = await client.dataset.list_datasets()
         job = await client.fine_tuning.create_fine_tuning_job(FineTuningJobCreate(
             base_model_name="llm_llama3_1_8b",
@@ -142,7 +142,7 @@ from datetime import timedelta, date
 
 
 async def main():
-    async with LuminoSDK(os.environ.get("LUMINO_API_KEY")) as client:
+    async with LuminoSDK(os.environ.get("LUMSDK_API_KEY")) as client:
         end_date = date.today()
         start_date = end_date - timedelta(days=30)
         total_cost = await client.usage.get_total_cost(start_date, end_date)
