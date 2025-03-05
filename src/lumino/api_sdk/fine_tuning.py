@@ -1,14 +1,14 @@
 import logging
 from typing import Optional
 
-from lumino.models import (
+from lumino.api_sdk.models import (
     FineTuningJobCreate,
     FineTuningJobResponse,
     FineTuningJobDetailResponse,
     ListResponse,
     Pagination
 )
-from lumino.sdk import LuminoSDK
+from lumino.api_sdk.sdk import LuminoSDK
 
 
 class FineTuningEndpoint:

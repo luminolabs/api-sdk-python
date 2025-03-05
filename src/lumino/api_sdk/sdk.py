@@ -5,7 +5,7 @@ from typing import Dict, Any
 
 import aiohttp
 
-from lumino.exceptions import LuminoServerError
+from lumino.api_sdk.exceptions import LuminoServerError
 
 
 class DateTimeEncoder(json.JSONEncoder):
@@ -43,19 +43,19 @@ class LuminoSDK:
             api_key (str): The API key for authentication.
             base_url (str): The base URL of the Lumino API. Defaults to "https://api.luminolabs.ai/v1".
         """
-        self._api_key = api_key  # Changed from self.api_key to self._api_key
+        self.api_key = api_key
         self.base_url = base_url
         self.session: aiohttp.ClientSession | None = None
         self.logger = logging.getLogger(__name__)
 
         # Import endpoint classes here to avoid circular imports
-        from lumino.api_key import ApiKeyEndpoint
-        from lumino.billing import BillingEndpoint
-        from lumino.dataset import DatasetEndpoint
-        from lumino.fine_tuning import FineTuningEndpoint
-        from lumino.model import ModelEndpoint
-        from lumino.usage import UsageEndpoint
-        from lumino.user import UserEndpoint
+        from lumino.api_sdk.api_key import ApiKeyEndpoint
+        from lumino.api_sdk.billing import BillingEndpoint
+        from lumino.api_sdk.dataset import DatasetEndpoint
+        from lumino.api_sdk.fine_tuning import FineTuningEndpoint
+        from lumino.api_sdk.model import ModelEndpoint
+        from lumino.api_sdk.usage import UsageEndpoint
+        from lumino.api_sdk.user import UserEndpoint
 
         # Initialize endpoint-specific classes
         self.user = UserEndpoint(self)
@@ -80,7 +80,7 @@ class LuminoSDK:
     async def _ensure_session(self) -> None:
         """Ensure that an aiohttp session exists."""
         if self.session is None:
-            self.session = aiohttp.ClientSession(headers={"X-API-Key": self._api_key})
+            self.session = aiohttp.ClientSession(headers={"X-API-Key": self.api_key})
 
     async def request(self, method: str, endpoint: str, **kwargs: Any) -> Dict[str, Any]:
         """

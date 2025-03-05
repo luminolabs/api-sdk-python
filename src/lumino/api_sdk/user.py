@@ -1,7 +1,7 @@
 import logging
 
-from lumino.models import UserUpdate, UserResponse
-from lumino.sdk import LuminoSDK
+from lumino.api_sdk.models import UserUpdate, UserResponse
+from lumino.api_sdk.sdk import LuminoSDK
 
 
 class UserEndpoint:

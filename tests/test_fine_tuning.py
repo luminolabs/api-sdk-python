@@ -3,7 +3,7 @@ from unittest.mock import patch
 import aiohttp
 import pytest
 
-from lumino.models import (
+from lumino.api_sdk.models import (
     FineTuningJobCreate,
     FineTuningJobParameters,
     FineTuningJobResponse,

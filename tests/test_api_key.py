@@ -4,8 +4,8 @@ from unittest.mock import patch
 import aiohttp
 import pytest
 
-from lumino.exceptions import LuminoClientError
-from lumino.models import (
+from lumino.api_sdk.exceptions import LuminoClientError
+from lumino.api_sdk.models import (
     ApiKeyCreate,
     ApiKeyUpdate,
     ApiKeyResponse,

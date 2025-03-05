@@ -1,12 +1,12 @@
 import logging
 
-from lumino.models import (
+from lumino.api_sdk.models import (
     BaseModelResponse,
     FineTunedModelResponse,
     ListResponse,
     Pagination
 )
-from lumino.sdk import LuminoSDK
+from lumino.api_sdk.sdk import LuminoSDK
 
 
 class ModelEndpoint:

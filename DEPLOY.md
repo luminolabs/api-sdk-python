@@ -1,6 +1,6 @@
 # Deploying to PyPI
 
-Follow the steps below to deploy the lumino package to PyPI.
+Follow the steps below to deploy the api_sdk package to PyPI.
 
 ---
 

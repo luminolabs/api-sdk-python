@@ -4,7 +4,7 @@ from unittest.mock import patch
 import aiohttp
 import pytest
 
-from lumino.models import (
+from lumino.api_sdk.models import (
     UsageRecordResponse,
     TotalCostResponse,
     ServiceName,

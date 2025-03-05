@@ -34,7 +34,7 @@ python setup.py sdist bdist_wheel
 
 # Upload the package to PyPI
 echo "Uploading the package to PyPI..."
-twine upload --repository lumino dist/*
+twine upload --repository lumino-api-sdk-python dist/*
 
 # Clean up
 echo "Cleaning up build files..."

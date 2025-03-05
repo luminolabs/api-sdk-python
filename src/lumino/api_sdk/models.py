@@ -6,7 +6,7 @@ from uuid import UUID
 
 from pydantic import BaseModel as _BaseModel, Field, EmailStr, PlainSerializer, ConfigDict, field_validator
 
-from lumino.exceptions import LuminoClientError
+from lumino.api_sdk.exceptions import LuminoClientError
 
 
 class UserStatus(str, Enum):

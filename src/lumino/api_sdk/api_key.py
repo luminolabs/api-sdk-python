@@ -1,6 +1,6 @@
 import logging
 
-from lumino.models import (
+from lumino.api_sdk.models import (
     ApiKeyCreate,
     ApiKeyUpdate,
     ApiKeyResponse,
@@ -8,7 +8,7 @@ from lumino.models import (
     ListResponse,
     Pagination
 )
-from lumino.sdk import LuminoSDK
+from lumino.api_sdk.sdk import LuminoSDK
 
 
 class ApiKeyEndpoint:

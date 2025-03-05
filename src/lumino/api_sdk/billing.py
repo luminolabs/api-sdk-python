@@ -1,13 +1,13 @@
 import logging
 from datetime import date
 
-from lumino.exceptions import LuminoClientError
-from lumino.models import (
+from lumino.api_sdk.exceptions import LuminoClientError
+from lumino.api_sdk.models import (
     CreditHistoryResponse,
     ListResponse,
     Pagination
 )
-from lumino.sdk import LuminoSDK
+from lumino.api_sdk.sdk import LuminoSDK
 
 
 class BillingEndpoint:

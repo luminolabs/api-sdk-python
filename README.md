@@ -20,7 +20,7 @@ The Lumino SDK for Python provides a convenient way to interact with the Lumino 
 You can install the Lumino SDK using pip:
 
 ```bash
-pip install lumino
+pip install lumino-api-sdk-python
 ```
 
 ## Setting up API Key
@@ -40,14 +40,15 @@ export LUMINO_API_KEY=xxxxx
 ```python
 import os
 import asyncio
-from lumino.sdk import LuminoSDK
+from lumino.api_sdk.sdk import LuminoSDK
 
 
 async def main():
     async with LuminoSDK(os.environ.get("LUMINO_API_KEY")) as client:
         user = await client.user.get_current_user()
         print(user)
-        
+
+
 asyncio.run(main())
 ```
 
@@ -55,9 +56,10 @@ asyncio.run(main())
 The files API is used for fine-tuning and allows developers to upload data to fine-tune on. It also has several methods to list all files, retrive files, and delete files. Please refer to our fine-tuning docs here.
 
 ```python
-import os
 import asyncio
-from lumino.sdk import LuminoSDK
+import os
+
+from lumino.api_sdk.sdk import LuminoSDK
 
 
 async def main():
@@ -66,8 +68,9 @@ async def main():
         await client.dataset.upload_dataset("somefile.jsonl")
         await client.dataset.get_dataset("somefile.jsonl")
         await client.dataset.delete("somefile.jsonl")
-        
+
         print(files)
+
 
 asyncio.run(main())
 ```
@@ -78,13 +81,14 @@ This lists all the models that Lumino supports.
 ```python
 import os
 import asyncio
-from lumino.sdk import LuminoSDK
+from lumino.api_sdk.sdk import LuminoSDK
 
 
 async def main():
     async with LuminoSDK(os.environ.get("LUMINO_API_KEY")) as client:
         models = await client.model.list_base_models()
         print(models)
+
 
 asyncio.run(main())
 ```
@@ -96,16 +100,17 @@ The finetune API is used for fine-tuning and allows developers to create finetun
 ```python
 import os
 import asyncio
-from lumino.sdk import LuminoSDK
+from lumino.api_sdk.sdk import LuminoSDK
+from lumino.api_sdk.models import FineTuningJobCreate, FineTuningJobParameters
 
 
 async def main():
     async with LuminoSDK(os.environ.get("LUMINO_API_KEY")) as client:
         files = await client.dataset.list_datasets()
-        job = await sdk.fine_tuning.create_fine_tuning_job(FineTuningJobCreate(
+        job = await client.fine_tuning.create_fine_tuning_job(FineTuningJobCreate(
             base_model_name="llm_llama3_1_8b",
             dataset_name=files[0].name,
-            name=add_suffix("test-fine-tuning-job"),
+            name="test-fine-tuning-job",
             parameters=FineTuningJobParameters(
                 batch_size=2,
                 shuffle=True,
@@ -122,7 +127,8 @@ async def main():
 
         job_details = await client.fine_tuning.get_fine_tuning_job(job.name)
         print(job_details)
-        
+
+
 asyncio.run(main())
 ```
 
@@ -131,8 +137,9 @@ asyncio.run(main())
 ```python
 import os
 import asyncio
-from lumino.sdk import LuminoSDK
+from lumino.api_sdk.sdk import LuminoSDK
 from datetime import timedelta, date
+
 
 async def main():
     async with LuminoSDK(os.environ.get("LUMINO_API_KEY")) as client:
@@ -143,6 +150,7 @@ async def main():
 
         usage_records = await client.usage.list_usage_records(start_date, end_date)
         print(usage_records)
+
 
 asyncio.run(main())
 ```

@@ -14,7 +14,7 @@ with open("requirements.txt", "r", encoding="utf-8") as fh:
 
 # Setup configuration
 setup(
-    name="lumino",
+    name="lumino-api-sdk-python",
     version=version,
     author="Lumino Labs AI",
     author_email="engg@luminolabs.ai",
@@ -22,7 +22,7 @@ setup(
     description="A Python SDK for interacting with the Lumino Labs API",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/luminolabs/lumino-sdk-python",
+    url="https://github.com/luminolabs/api-sdk-python",
     packages=find_packages(where="src"),
     package_dir={"": "src"},
     python_requires=">=3.10",

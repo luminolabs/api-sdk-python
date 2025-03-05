@@ -2,13 +2,13 @@ import logging
 from datetime import date
 from typing import Optional
 
-from lumino.models import (
+from lumino.api_sdk.models import (
     UsageRecordResponse,
     TotalCostResponse,
     ListResponse,
     Pagination
 )
-from lumino.sdk import LuminoSDK
+from lumino.api_sdk.sdk import LuminoSDK
 
 
 class UsageEndpoint:

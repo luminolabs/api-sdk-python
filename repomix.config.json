@@ -1,8 +1,8 @@
 {
   "output": {
-    "filePath": "lumino-sdk-python.txt",
+    "filePath": "api-sdk-python.txt",
     "style": "plain",
-    "headerText": "Lumino SDK Python",
+    "headerText": "Lumino API Python SDK",
     "removeComments": false,
     "removeEmptyLines": false,
     "showLineNumbers": false,

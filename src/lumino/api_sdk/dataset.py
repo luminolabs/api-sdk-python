@@ -2,14 +2,14 @@ import logging
 
 import aiohttp
 
-from lumino.models import (
+from lumino.api_sdk.models import (
     DatasetCreate,
     DatasetUpdate,
     DatasetResponse,
     ListResponse,
     Pagination
 )
-from lumino.sdk import LuminoSDK
+from lumino.api_sdk.sdk import LuminoSDK
 
 
 class DatasetEndpoint:

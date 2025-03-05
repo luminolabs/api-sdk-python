@@ -2,7 +2,7 @@ from unittest.mock import AsyncMock
 
 import pytest
 
-from lumino.sdk import LuminoSDK
+from lumino.api_sdk.sdk import LuminoSDK
 
 
 class MockResponse:

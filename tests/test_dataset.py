@@ -3,7 +3,7 @@ from unittest.mock import patch, mock_open
 import aiohttp
 import pytest
 
-from lumino.models import (
+from lumino.api_sdk.models import (
     DatasetCreate,
     DatasetResponse,
     DatasetStatus, DatasetUpdate
