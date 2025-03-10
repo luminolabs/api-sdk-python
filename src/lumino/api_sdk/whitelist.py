@@ -27,8 +27,6 @@ class WhitelistRequestResponse(BaseModel):
     created_at: str
     updated_at: str
 
-
-# Add to lumino/api_sdk/clients/
 class WhitelistClient:
     """
     Client for whitelist operations.
@@ -61,8 +59,6 @@ class WhitelistClient:
         return WhitelistRequestResponse(**response)
 
 
-# Add to lumino/api_sdk/sdk.py
-# Inside the LuminoSDK class, add this property
 @property
 def whitelist(self) -> WhitelistClient:
     return WhitelistClient(self.http_client)
