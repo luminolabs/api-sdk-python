@@ -57,6 +57,35 @@ class WhitelistClient:
         """
         response = await self.http_client.get("/whitelist")
         return WhitelistRequestResponse(**response)
+    
+    async def add_computing_providers_batch(self, addresses: List[str]) -> Dict[str, Any]:
+        """
+        Add multiple computing providers to the whitelist in a batch.
+        
+        Args:
+            addresses: List of computing provider addresses to whitelist
+            
+        Returns:
+            Dictionary with operation results including transaction hash
+        """
+        payload = {"addresses": addresses}
+        response = await self.http_client.post("/whitelist/computing-providers/batch", payload)
+        return response
+
+
+    async def remove_computing_providers_batch(self, addresses: List[str]) -> Dict[str, Any]:
+        """
+        Remove multiple computing providers from the whitelist in a batch.
+        
+        Args:
+            addresses: List of computing provider addresses to remove
+            
+        Returns:
+            Dictionary with operation results including transaction hash
+        """
+        payload = {"addresses": addresses}
+        response = await self.http_client.delete("/whitelist/computing-providers/batch", json=payload)
+        return response
 
 
 @property
