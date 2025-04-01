@@ -131,6 +131,7 @@ class TestRunner:
             from test_fine_tuning import test_fine_tuning_operations
             from test_usage import test_usage_operations
             from test_billing import test_billing_operations
+            from test_whitelist import test_whitelist_operations, test_duplicate_whitelist_request
 
             console.print("=== Running tests ===")
 
@@ -142,7 +143,9 @@ class TestRunner:
                 test_model_operations,
                 test_fine_tuning_operations,
                 test_usage_operations,
-                test_billing_operations
+                test_billing_operations,
+                test_whitelist_operations,
+                test_duplicate_whitelist_request
             ]
 
             # Create progress display
